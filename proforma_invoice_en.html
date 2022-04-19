@@ -1,0 +1,104 @@
+<style>*{font-size: 10pt; line-height: normal;}</style>
+<table cellpadding="0" style="color: #303030; text-align: left; vertical-align: top;">
+    <tr>
+        <td colspan="4" width="100%"><b style="font-size: 7.5pt; line-height: 15pt; color: #303030;">Berliner Nanotest und Design GmbH | Volmerstr. 9 B | D-12489 Berlin</b></td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top; color:#000000;" rowspan="6" width="58%"
+        ><b>{{#if shippingAddressCompany}}{{shippingAddressCompany}}{{else}}{{accountName}}{{/if}}</b><br><span
+            >{{#if shippingAddressStreet}}{{{shippingAddressStreet}}}{{else}}{{{account.shippingAddressStreet}}}{{/if}}</span><br><span
+            >{{#if shippingAddressCity}}{{shippingAddressCity}}{{#if shippingAddressState}}, {{/if}}{{shippingAddressState}} {{shippingAddressPostalCode}}{{else}}{{account.shippingAddressCity}}{{#if account.shippingAddressState}}, {{/if}}{{account.shippingAddressState}} {{account.shippingAddressPostalCode}}{{/if}}</span><br><span
+            >{{#if shippingAddressCountry}}{{shippingAddressCountry}}{{else}}{{account.shippingAddressCountry}}{{/if}}<br></span>
+        </td>
+        <td rowspan="3" width="2%" style="border-left: 2px solid green;"></td>
+        <td width="16%"><b style="font-size: 9pt;">Contact person:</b></td>
+        <td style="font-size: 9pt;">{{assignedUser.name}}</td>
+    </tr>
+    <tr>
+        <td width="16%"><b style="font-size: 9pt;">Phone:</b></td>
+        <td style="font-size: 9pt;">{{assignedUser.phoneNumber}}</td>
+    </tr>
+    <tr>
+        <td width="16%"><b style="font-size: 9pt;">E-mail:</b></td>
+        <td style="font-size: 9pt;">{{assignedUser.emailAddress}}</td>
+    </tr>
+    <tr><td colspan="3"></td></tr>
+    <tr>
+        <td width="2%" style="border-left: 2px solid green;"></td>
+        <td width="16%"><b style="font-size: 10.5pt;">Date:</b></td>
+        <td style="font-size: 10.5pt;">{{dateFormat today_RAW format='DD-MMM-YYYY' language="en_US"}}</td>
+    </tr>
+    <tr><td colspan="3"></td></tr>
+</table>
+
+<table style="padding-left: 7pt;">
+    <tr><td></td></tr>
+    <tr>
+        <td style="border-left: 2px solid green;"><b style="font-size: 16pt;">Pro-Forma-Rechnung</b>&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 16pt;">Proforma invoice</i></td>
+    </tr>
+    <tr><td></td></tr>
+</table>
+
+<table cellpadding="2">
+    <tr>
+        <td width="36%"><b>Bestellnummer und -Datum</b><br
+        ><i style="font-size: 9pt;">Purchase order No. and date</i></td>
+        <td width="19%">{{#if orderNumber}}{{orderNumber}}{{/if}}</td>
+        <td width="46%">{{#if dateOrdered}}{{dateFormat dateOrdered_RAW format="DD-MMM-YYYY" language="en_US"}}{{/if}}</td>
+    </tr>
+    <!-- {{#if billingContact}} -->
+    <tr>
+        <td><b>Rechnungsreferenz</b><br
+            ><i style="font-size: 9pt;">Invoice reference</i></td>
+        <td coolspan="2" width="64%">{{billingContactName}} ({{billingContact.emailAddress}})</td>
+    </tr>
+    <!-- {{/if}} -->
+    <tr>
+        <td><b>Liefertermin und -Adressat</b><br
+        ><i style="font-size: 9pt;">Date of service and recipient</i></td>
+        <td width="19%">{{#if dueDate}}{{dateFormat dueDate_RAW format="DD-MMM-YYYY" language="en_US"}}{{/if}}</td>
+        <!-- {{#if billingAddressStreet}} -->
+        <td width="46%">{{{shippingAddressStreet}}}{{#if shippingAddressCity}}<br>{{shippingAddressCity}}{{/if}}{{#if shippingAddressState}}, {{shippingAddressState}}{{/if}} {{#if shippingAddressPostalCode}}{{shippingAddressPostalCode}}{{/if}}{{#if shippingAddressState}}<br>{{shippingAddressCountry}}{{/if}}</td>
+        <!-- {{/if}} -->
+    </tr>
+    <!-- {{#if account.vatID}} -->
+    <tr>
+        <td><b>Ust.-Ident.-Nr. des Empfängers</b><br
+            ><i style="font-size: 9pt;">VAT ID of recipient</i></td>
+            <td>{{account.vatID}}</td>
+    </tr>
+    <!-- {{/if}} -->
+    <tr><td colspan="3"></td></tr>
+</table>
+
+<table border="0" cellpadding="2" style="line-height: 12.5pt;">
+    <tbody>
+        <tr style="background-color: #f0f0f0;">
+            <th width="5%" style="text-align: center; padding: 2px;"><b>#</b></th>
+            {{#ifEqual discountAmount '0.00'}}<th width="59%" style="padding: 2px;">{{else}}<th width="53%" style="padding: 2px;">{{/ifEqual}}<b>Item</b></th>
+            <th width="9%" style="text-align: center; padding: 2px;"><b>Qty</b></th>
+            <th width="13%" style="text-align: right; padding: 2px;"><b>Unit Price</b></th>
+            {{#ifEqual discountAmount '0.00'}}<th width="1%">{{else}}<th width="7%">{{/ifEqual}}</th>
+            <th width="13%" style="text-align: right; padding: 2px;"><b>Price</b></th>
+        </tr>
+        <!-- {{#each itemList}} -->
+        <tr>
+            <td style="text-align: center;">{{order}}</td>
+            <td>{{name}}{{#if description}}<br
+                ><span style="font-size: 8.5pt; color: #303030;">{{{description}}}</span>{{/if}}</td>
+            <td align="center">{{quantity}}</td>
+            <td align="right">{{#if discount}}{{numberFormat listPrice_RAW decimals=2 thousandsSeparator=' '}}{{else}}{{numberFormat unitPrice_RAW decimals=2 thousandsSeparator=' '}}{{/if}}</td>
+            <td align="right">{{#if discount}}{{#ifNotEqual discount '0.00'}}-{{numberFormat discount_RAW decimals=0}}%{{/ifNotEqual}}{{/if}}</td>
+            <td align="right">{{numberFormat amount_RAW decimals=2 thousandsSeparator=' '}}</td>
+        </tr>
+        <!-- {{/each}} -->
+        <tr><td colspan="6" style="line-height: 2pt;"></td></tr>
+        <tr style="background-color: #f0f0f0; line-height: 20pt; vertical-align: middle;">
+            <td colspan="5" align="right"><b>Net total</b></td>
+            <td align="right"><b>{{numberFormat preDiscountedAmount_RAW decimals=2 thousandsSeparator=' '}}</b></td>
+        </tr>
+        <tr><td colspan="6" style="text-align: right; line-height: 14pt;">Currency:  {{amountCurrency}}</td></tr>
+        <tr><td colspan="6" style="line-height: 2pt;"></td></tr>
+        <tr><td colspan="6"><strong>*No commercial invoice, for shipping purpose only*</strong></td></tr>
+    </tbody>
+</table>
