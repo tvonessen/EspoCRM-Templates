@@ -131,5 +131,10 @@
             <td align="right"><b>{{numberFormat grandTotalAmount_RAW decimals=2 decimalPoint=',' thousandsSeparator=' '}}</b></td>
         </tr>
         <tr><td colspan="6" style="text-align: right; line-height: 14pt;">Währung:  {{amountCurrency}}</td></tr>
+        <!-- {{#if description}} -->
+        <tr><td colspan="6" style="line-height: 2pt;"></td></tr>
+        <tr><td colspan="6"><strong>Hinweise</strong></td></tr>
+        <tr><td colspan="6">{{{description}}}</td></tr>
+        <!-- {{/if}} -->
     </tbody>
 </table>

@@ -43,7 +43,7 @@
     <tr>
         <td width="36%"><b>Bestellnummer und -Datum</b><br
         ><i style="font-size: 9pt;">Purchase order No. and date</i></td>
-        <td width="19%">{{#if orderNumber}}{{orderNumber}}{{/if}}</td>
+        <td width="19%">{{#if number}}{{number}}{{/if}}</td>
         <td width="46%">{{#if dateOrdered}}{{dateFormat dateOrdered_RAW format="DD-MMM-YYYY" language="en_US"}}{{/if}}</td>
     </tr>
     <!-- {{#if billingContact}} -->
@@ -100,5 +100,13 @@
         <tr><td colspan="6" style="text-align: right; line-height: 14pt;">Currency:  {{amountCurrency}}</td></tr>
         <tr><td colspan="6" style="line-height: 2pt;"></td></tr>
         <tr><td colspan="6"><strong>*No commercial invoice, for shipping purpose only*</strong></td></tr>
+        <!-- {{#if description}} -->
+        <tr><td colspan="6" style="line-height: 2pt;"></td></tr>
+        <tr>
+            <td width="15%"><strong>Hinweise</strong></td>
+            <td colspan="5" style="text-align: left;"><em>Additional remarks</em></td>
+        </tr>
+        <tr><td colspan="5">{{{description}}}</td></tr>
+        <!-- {{/if}} -->
     </tbody>
 </table>
