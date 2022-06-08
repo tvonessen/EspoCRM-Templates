@@ -65,7 +65,7 @@
         ><i style="font-size: 9pt;">Date of service and recipient</i></td>
         <td width="19%">{{dateFormat dateDelivered_RAW format="DD-MMM-YYYY" language="en_US"}}</td>
         <!-- {{#if billingAddressStreet}} -->
-        <td width="44%">{{{shippingAddressStreet}}}{{#if shippingAddressCity}}<br>{{shippingAddressCity}}{{/if}}{{#if shippingAddressState}}, {{shippingAddressState}}{{/if}} {{#if shippingAddressPostalCode}}{{shippingAddressPostalCode}}{{/if}}{{#if shippingAddressState}}<br>{{shippingAddressCountry}}{{/if}}</td>
+        <td width="44%">{{#if shippingContactName}}{{shippingContactName}}<br>{{/if}}{{{shippingAddressStreet}}}{{#if shippingAddressCity}}<br>{{shippingAddressCity}}{{/if}}{{#if shippingAddressState}}, {{shippingAddressState}}{{/if}} {{#if shippingAddressPostalCode}}{{shippingAddressPostalCode}}{{/if}}{{#if shippingAddressState}}<br>{{shippingAddressCountry}}{{/if}}</td>
         <!-- {{/if}} -->
 
     </tr>
@@ -79,7 +79,11 @@
     <tr>
         <td><b>Zahlungsfrist</b><br
             ><i style="font-size: 9pt;">Term of payment</i></td>
-            <td>{{paymentTerm}} days</td>
+            <!-- {{#if quote.overridePaymentTerms}} -->
+            <td colspan="2">{{quote.customPaymentTerms}}</td>
+            <!-- {{else}} -->
+            <td colspan="2">{{paymentTerm}} days</td>
+            <!--{{/if}}-->
     </tr>
     <tr><td colspan="3"></td></tr>
 </table>
