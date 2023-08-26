@@ -10,22 +10,22 @@
             >{{#if shippingAddressCity}}{{shippingAddressCity}}{{#if shippingAddressState}}, {{/if}}{{shippingAddressState}} {{shippingAddressPostalCode}}{{else}}{{account.shippingAddressCity}}{{#if account.shippingAddressState}}, {{/if}}{{account.shippingAddressState}} {{account.shippingAddressPostalCode}}{{/if}}</span><br><span
             >{{#if shippingAddressCountry}}{{shippingAddressCountry}}{{else}}{{account.shippingAddressCountry}}{{/if}}<br></span>
         </td>
-        <td rowspan="3" width="2%" style="border-left: 2px solid green;"></td>
-        <td width="16%"><b style="font-size: 9pt;">Contact person:</b></td>
+        <td rowspan="3" width="2%" style="border-left: 2px solid #00a984;"></td>
+        <td width="16%"><b style="font-size: 9pt; color: #204E4A">Contact person:</b></td>
         <td style="font-size: 9pt;">{{assignedUser.name}}</td>
     </tr>
     <tr>
-        <td width="16%"><b style="font-size: 9pt;">Phone:</b></td>
+        <td width="16%"><b style="font-size: 9pt; color: #204E4A">Phone:</b></td>
         <td style="font-size: 9pt;">{{assignedUser.phoneNumber}}</td>
     </tr>
     <tr>
-        <td width="16%"><b style="font-size: 9pt;">E-mail:</b></td>
+        <td width="16%"><b style="font-size: 9pt; color: #204E4A">E-mail:</b></td>
         <td style="font-size: 9pt;">{{assignedUser.emailAddress}}</td>
     </tr>
     <tr><td colspan="3"></td></tr>
     <tr>
-        <td width="2%" style="border-left: 2px solid green;"></td>
-        <td width="16%"><b style="font-size: 10.5pt;">Date:</b></td>
+        <td width="2%" style="border-left: 2px solid #00a984;"></td>
+        <td width="16%"><b style="font-size: 10.5pt; color: #204E4A">Date:</b></td>
         <td style="font-size: 10.5pt;">{{dateFormat today_RAW format='DD-MMM-YYYY' language="en_US"}}</td>
     </tr>
     <tr><td colspan="3"></td></tr>
@@ -34,7 +34,7 @@
 <table style="padding-left: 7pt;">
     <tr><td></td></tr>
     <tr>
-        <td style="border-left: 2px solid green;"><b style="font-size: 16pt;">Pro-Forma-Rechnung</b>&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 16pt;">Proforma invoice</i></td>
+        <td style="border-left: 2px solid #00a984;"><b style="font-size: 16pt;">Pro-Forma-Rechnung</b>&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 16pt;">Proforma invoice</i></td>
     </tr>
     <tr><td></td></tr>
 </table>
@@ -100,13 +100,15 @@
         <tr><td colspan="6" style="text-align: right; line-height: 14pt;">Currency:  {{amountCurrency}}</td></tr>
         <tr><td colspan="6" style="line-height: 2pt;"></td></tr>
         <tr><td colspan="6"><strong>*No commercial invoice, for shipping purpose only*</strong></td></tr>
-        <!-- {{#if description}} -->
-        <tr><td colspan="6" style="line-height: 2pt;"></td></tr>
-        <tr>
-            <td width="15%"><strong>Hinweise</strong></td>
-            <td colspan="5" style="text-align: left;"><em>Additional remarks</em></td>
-        </tr>
-        <tr><td colspan="5">{{{description}}}</td></tr>
-        <!-- {{/if}} -->
     </tbody>
 </table>
+
+<!-- {{#if description}} -->
+<table style="padding-left: 7pt;">
+    <tbody>
+        <tr><td></td></tr>
+        <tr><td style="border-left: 2px solid #3f3f3f;"><b style="line-height: 12pt; font-size: 11pt; ">Hinweise</b>&nbsp;&nbsp;<i>Additional remarks</i></td></tr>
+    </tbody>
+</table>
+<p style="font-size: 11pt; line-height: 11pt;">{{description}}</p>
+<!-- {{/if}} -->

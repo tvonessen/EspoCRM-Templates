@@ -12,22 +12,22 @@
             >{{#if billingAddressCity}}{{billingAddressCity}}{{#if billingAddressState}},{{/if}}{{billingAddressState}} {{billingAddressPostalCode}}{{else}}{{account.billingAddressCity}}{{#if account.billingAddressState}},{{/if}}{{account.billingAddressState}} {{account.billingAddressPostalCode}}{{/if}}</span><br><span
             >{{#if billingAddressCountry}}{{billingAddressCountry}}{{else}}{{account.billingAddressCountry}}{{/if}}<br></span>
         </td>
-        <td rowspan="3" width="2%" style="border-left: 2px solid green;"></td>
-        <td width="19%"><b style="font-size: 9pt;">Ansprechpartner:</b></td>
+        <td rowspan="3" width="2%" style="border-left: 2px solid #00a984;"></td>
+        <td width="19%"><b style="font-size: 9pt; color: #204e4a">Ansprechpartner:</b></td>
         <td width="21%" style="font-size: 9pt;">{{assignedUser.name}}</td>
     </tr>
     <tr>
-        <td width="19%"><b style="font-size: 9pt;">Telefon:</b></td>
+        <td width="19%"><b style="font-size: 9pt; color: #204e4a">Telefon:</b></td>
         <td style="font-size: 9pt;">{{assignedUser.phoneNumber}}</td>
     </tr>
     <tr>
-        <td width="19%"><b style="font-size: 9pt;">E-Mail:</b></td>
+        <td width="19%"><b style="font-size: 9pt; color: #204e4a">E-Mail:</b></td>
         <td style="font-size: 9pt;">{{assignedUser.emailAddress}}</td>
     </tr>
     <tr><td colspan="3"></td></tr>
     <tr>
-        <td width="2%" style="border-left: 2px solid green;"></td>
-        <td width="19%"><b style="font-size: 10.5pt;">Datum:</b></td>
+        <td width="2%" style="border-left: 2px solid #00a984;"></td>
+        <td width="19%"><b style="font-size: 10.5pt; color: #204e4a">Datum:</b></td>
         <td style="font-size: 10.5pt;">{{dateFormat dateInvoiced_RAW format='DD. MMM. YYYY' language="de_DE"}}</td>
     </tr>
     <tr><td colspan="3"></td></tr>
@@ -36,7 +36,7 @@
 <table style="padding-left: 7pt;">
     <tr><td colspan="2"></td></tr>
     <tr>
-        <td width="37%" style="border-left: 2px solid green;"><b style="font-size: 16pt;">Rechnung</b></td>
+        <td width="37%" style="border-left: 2px solid #00a984;"><b style="font-size: 16pt;">Rechnung</b></td>
         <td width="63%" style="font-size: 16pt;">{{number}}</td>
     </tr>
     <tr><td colspan="2"></td></tr>
