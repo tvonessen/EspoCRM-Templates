@@ -1,0 +1,144 @@
+<style>
+*{font-size: 10pt; line-height: normal;}
+</style>
+<table cellpadding="0" style="color: #303030; text-align: left; vertical-align: top;">
+    <tr>
+        <td colspan="4" width="100%"><b style="font-size: 7.5pt; line-height: 15pt; color: #303030;">Berliner Nanotest und Design GmbH | Volmerstr. 9 B | D-12489 Berlin</b></td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top; color: #000000;" rowspan="6" width="58%"
+            ><b>{{#if billingAddressCompany}}{{billingAddressCompany}}{{else}}{{accountName}}{{/if}}</b><br><span
+            >{{#if billingAddressStreet}}{{{billingAddressStreet}}}{{else}}{{{account.billingAddressStreet}}}{{/if}}</span><br><span
+            >{{#if billingAddressCity}}{{billingAddressCity}}{{#if billingAddressState}},{{/if}}{{billingAddressState}} {{billingAddressPostalCode}}{{else}}{{account.billingAddressCity}}{{#if account.billingAddressState}},{{/if}}{{account.billingAddressState}} {{account.billingAddressPostalCode}}{{/if}}</span><br><span
+            >{{#if billingAddressCountry}}{{billingAddressCountry}}{{else}}{{account.billingAddressCountry}}{{/if}}<br></span>
+        </td>
+        <td rowspan="3" width="2%" style="border-left: 2px solid #00a984;"></td>
+        <td width="19%"><b style="font-size: 9pt; color: #204e4a">Ansprechpartner:</b></td>
+        <td width="21%" style="font-size: 9pt;">{{assignedUser.name}}</td>
+    </tr>
+    <tr>
+        <td width="19%"><b style="font-size: 9pt; color: #204e4a">Telefon:</b></td>
+        <td style="font-size: 9pt;">{{assignedUser.phoneNumber}}</td>
+    </tr>
+    <tr>
+        <td width="19%"><b style="font-size: 9pt; color: #204e4a">E-Mail:</b></td>
+        <td style="font-size: 9pt;">{{assignedUser.emailAddress}}</td>
+    </tr>
+    <tr><td colspan="3"></td></tr>
+    <tr>
+        <td width="2%" style="border-left: 2px solid #00a984;"></td>
+        <td width="19%"><b style="font-size: 10.5pt; color: #204e4a">Datum:</b></td>
+        <td style="font-size: 10.5pt;">{{dateFormat dateInvoiced_RAW format='DD. MMM. YYYY' language="de_DE"}}</td>
+    </tr>
+    <tr><td colspan="3"></td></tr>
+</table>
+
+<table style="padding-left: 7pt;">
+    <tr><td colspan="2"></td></tr>
+    <tr>
+        <td width="37%" style="border-left: 2px solid #00a984;"><b style="font-size: 16pt;">Gutschrift</b></td>
+        <td width="63%" style="font-size: 16pt;"></td>
+    </tr>
+    <tr><td colspan="2"></td></tr>
+</table>
+
+<table cellpadding="2">
+    <tr>
+        <td width="38%" style="line-height: 18pt;"><b>Bestellnummer und -Datum</b></td>
+        <td width="19%">{{#if orderNumber}}{{orderNumber}}{{/if}}</td>
+        <td width="44%">{{#if dateOrdered}}{{dateFormat dateOrdered_RAW format="DD. MMM. YYYY" language="de_DE"}}{{/if}}</td>
+    </tr>
+    <!-- {{#if billingContact}} -->
+    <tr>
+        <td style="line-height: 18pt;"><b>Rechnungsreferenz</b></td>
+        <td coolspan="2" width="62%">{{billingContactName}} ({{billingContact.emailAddress}})</td>
+    </tr>
+    <!-- {{else}}{{#if salesOrder.billingContact}} -->
+    <tr>
+        <td style="line-height: 18pt;"><b>Rechnungsreferenz</b></td>
+        <td colspan="2">{{salesOrder.billingContactName}} ({{salesOrder.billingContact.emailAddress}})</td>
+    </tr>
+    <!-- {{/if}}{{/if}} -->
+    <tr>
+        <td style="line-height: 18pt;"><b>Leistungsdatum und -Adressat</b></td>
+        <td width="19%">{{dateFormat dateDelivered_RAW format="DD. MMM. YYYY" language="de_DE"}}</td>
+        <!-- {{#if billingAddressStreet}} -->
+        <td width="44%">{{#if shippingContactName}}{{shippingContactName}}<br>{{/if}}{{{shippingAddressStreet}}}{{#if shippingAddressCity}}<br>{{shippingAddressCity}}{{/if}}{{#if shippingAddressState}}, {{shippingAddressState}}{{/if}} {{#if shippingAddressPostalCode}}{{shippingAddressPostalCode}}{{/if}}{{#if shippingAddressState}}<br>{{shippingAddressCountry}}{{/if}}</td>
+        <!-- {{/if}} -->
+
+    </tr>
+    <!-- {{#if account.vatID}} -->
+    <tr>
+        <td style="line-height: 18pt;"><b>Ust.-Ident.-Nr. des Empfängers</b></td>
+            <td>{{account.vatID}}</td>
+    </tr>
+    <!-- {{/if}} -->
+    <tr>
+        <td style="line-height: 18pt;"><b>Zahlungsfrist</b></td>
+        <!-- {{#if quote.overridePaymentTerms}} -->
+        <td colspan="2">{{quote.customPaymentTerms}}</td>
+        <!-- {{else}} -->
+        <td colspan="2">{{paymentTerm}} Tage</td>
+        <!--{{/if}}-->
+    </tr>
+    <tr><td colspan="3"></td></tr>
+</table>
+
+<table border="0" cellpadding="2" style="line-height: 12.5pt;">
+    <tbody>
+        <tr style="background-color: #f0f0f0;">
+            <th width="5%" style="text-align: center; padding: 2px;"><b>#</b></th>
+            {{#ifEqual discountAmount '0.00'}}<th width="59%" style="padding: 2px;">{{else}}<th width="53%" style="padding: 2px;">{{/ifEqual}}<b>Position</b></th>
+            <th width="9%" style="text-align: center; padding: 2px;"><b>Anz.</b></th>
+            <th width="13%" style="text-align: right; padding: 2px;"><b>Stückpreis</b></th>
+            {{#ifEqual discountAmount '0.00'}}<th width="1%">{{else}}<th width="7%">{{/ifEqual}}</th>
+            <th width="13%" style="text-align: right; padding: 2px;"><b>Preis</b></th>
+        </tr>
+        <!-- {{#each itemList}} -->
+        <tr>
+            <td style="text-align: center;">{{order}}</td>
+            <td><span>{{name}}</span>{{#if description}}<br
+                ><span style="font-size: 8.5pt; color: #303030;">{{{description}}}</span>{{/if}}</td>
+            <td align="center">{{numberFormat quantity_RAW decimals=2 decimalPoint=','}}</td>
+            <td align="right">{{#if discount}}{{numberFormat listPrice_RAW decimals=2 decimalPoint=',' thousandsSeparator=' '}}{{else}}{{numberFormat unitPrice_RAW decimals=2 decimalPoint=',' thousandsSeparator=' '}}{{/if}}</td>
+            <td align="right">{{#if discount}}{{#ifNotEqual discount '0.00'}}-{{numberFormat discount_RAW decimals=0}}%{{/ifNotEqual}}{{/if}}</td>
+            <td align="right">{{numberFormat amount_RAW decimals=2 decimalPoint=',' thousandsSeparator=' '}}</td>
+        </tr>
+        <!-- {{/each}} -->
+        <tr>
+            <td colspan="6" style="line-height: 2pt;"></td>
+        </tr>
+        <!-- {{#if shippingCost}} -->
+        <!-- {{#ifNotEqual shippingCost '0.00'}} -->
+        <tr>
+            <td colspan="5" align="right">Versandkosten</td>
+            <td align="right">{{numberFormat shippingCost_RAW decimals=2 decimalPoint=',' thousandsSeparator=' '}}</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="line-height: 2pt;"></td>
+        </tr>
+        <!-- {{/ifNotEqual}} -->
+        <!-- {{/if}}-->
+        <!-- {{#ifNotEqual taxRate '0'}} -->
+        <tr style="background-color: #f0f0f0; vertical-align: middle;">
+            <td colspan="5" align="right">Nettosumme</td>
+            <td align="right">{{numberFormat amount_RAW decimals=2 decimalPoint=',' thousandsSeparator=' '}}</td>
+        </tr>
+        <tr style="background-color: #f0f0f0; vertical-align: middle;">
+            <td colspan="5" align="right">Ust. ({{numberFormat tax.rate_RAW decimals="0"}}%)</td>
+            <td align="right">{{numberFormat taxAmount_RAW decimals=2 decimalPoint=',' thousandsSeparator=' '}}</td>
+        </tr>
+        <tr><td colspan="6" style="line-height: 2pt; background-color: #f0f0f0;"></td></tr>
+        <!-- {{/ifNotEqual}} -->
+        <tr style="background-color: #f0f0f0; line-height: 20pt; vertical-align: middle;">
+            <td colspan="5" align="right"><b>Summe</b></td>
+            <td align="right"><b>{{numberFormat grandTotalAmount_RAW decimals=2 decimalPoint=',' thousandsSeparator=' '}}</b></td>
+        </tr>
+        <tr><td colspan="6" style="text-align: right; line-height: 14pt;">Währung:  {{amountCurrency}}</td></tr>
+        <!-- {{#if description}} -->
+        <tr><td colspan="6" style="line-height: 2pt;"></td></tr>
+        <tr><td colspan="6"><strong>Hinweise</strong></td></tr>
+        <tr><td colspan="6">{{{description}}}</td></tr>
+        <!-- {{/if}} -->
+    </tbody>
+</table>
