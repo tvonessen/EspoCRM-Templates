@@ -1,32 +1,41 @@
-<!-- {{#ifEqual vatDisclaimer '0'}} -->
+<!-- {{#ifEqual vatLegalDisclaimer_RAW 'None'}} -->
 <table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
-    <tr><td><br></td></tr>
+    <tr><td height="0.8cm"><br></td></tr>
     <tr><td style="font-size: 3pt;"></td></tr>
 </table>
 <!-- {{/ifEqual}} -->
 
-<!-- {{#ifEqual vatDisclaimer '1'}} -->
+<!-- {{#ifEqual vatLegalDisclaimer_RAW 'Dlv-IN-EU'}} -->
 <table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
     <tr>
-        <td width="100%">Es handelt sich umsatzsteuerlich um eine Lieferung und ist steuerfrei gemäß § 4 Nr. 1a) i.V.m. § 6 UstG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
+        <td width="100%">Lieferungen in den europäischen Binnenmarkt, steuerfrei gemäß § 4 Nr. 1 b) i.V.m. § 6a UStG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
     </tr>
     <tr><td style="font-size: 3pt;" colspan="2"></td></tr>
 </table>
 <!-- {{/ifEqual}} -->
 
-<!-- {{#ifEqual vatDisclaimer '2'}} -->
+<!-- {{#ifEqual vatLegalDisclaimer_RAW 'Dlv-EX-EU'}} -->
 <table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
     <tr>
-        <td width="100%">Es handelt sich umsatzsteuerlich um eine Lieferung und ist steuerfrei gemäß § 4 Nr. 1b) i.V.m. § 6 UstG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
+        <td width="100%">Lieferungen in das Drittland, steuerfrei gemäß § 4 Nr. 1 a) i.V.m. § 6 UStG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
     </tr>
     <tr><td style="font-size: 3pt;" colspan="2"></td></tr>
 </table>
 <!-- {{/ifEqual}} -->
 
-<!-- {{#ifEqual vatDisclaimer '3'}} -->
+<!-- {{#ifEqual vatLegalDisclaimer_RAW 'Srv-IN-EU'}} -->
 <table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
     <tr>
-        <td width="100%">Es handelt sich umsatzsteuerlich um sonstige Leistungen und ist steuerfrei gemäß § 3a (2) UstG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
+        <td width="100%">Sonst. Leistungen an Unternehmen im europ. Binnenmarkt, nicht steuerbar gemäß § 18 b UStG i.V.m. § 3a (2) UStG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
+    </tr>
+    <tr><td style="font-size: 3pt;" colspan="2"></td></tr>
+</table>
+<!-- {{/ifEqual}} -->
+
+<!-- {{#ifEqual vatLegalDisclaimer_RAW 'Srv-EX-EU'}} -->
+<table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
+    <tr>
+        <td width="100%">Sonst. Leistungen an Unternehmen im Drittland, nicht steuerbar gemäß § 3a (2) UStG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
     </tr>
     <tr><td style="font-size: 3pt;" colspan="2"></td></tr>
 </table>

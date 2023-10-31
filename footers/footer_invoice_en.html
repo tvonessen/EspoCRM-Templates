@@ -1,67 +1,81 @@
-<!-- {{#ifEqual vatDisclaimer '0'}} -->
-<table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
-    <tr><td><br><br></td></tr>
-    <tr><td style="font-size: 3pt;"></td></tr>
-</table>
-<!-- {{/ifEqual}} -->
+    <!-- {{#ifEqual vatLegalDisclaimer_RAW 'None'}} -->
+    <table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
+        <tr><td height="1.2cm"><br><br></td></tr>
+        <tr><td style="font-size: 3pt;"></td></tr>
+    </table>
+    <!-- {{/ifEqual}} -->
 
-<!-- {{#ifEqual vatDisclaimer '1'}} -->
-<table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
-    <tr>
-        <td width="50%">Es handelt sich umsatzsteuerlich um eine Lieferung und ist steuerfrei gemäß § 4 Nr. 1a) i.V.m. § 6 UstG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
-        <td width="50%" style="font-style: italic;">For value added tax purposes, this is a delivery. The delivery is tax-free in accordance with § 4 No. 1a) in conjunction with § 6 German UstG. Please transfer the invoiced amount within {{paymentTerm}} days.</td>
-    </tr>
-    <tr><td style="font-size: 3pt;" colspan="2"></td></tr>
-</table>
-<!-- {{/ifEqual}} -->
+    <!-- {{#ifEqual vatLegalDisclaimer_RAW 'Dlv-IN-EU'}} -->
+    <table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
+        <tr>
+            <td height="1.2cm" width="49%">Lieferungen in den europäischen Binnenmarkt, steuerfrei gemäß § 4 Nr. 1 b) i.V.m. § 6a UStG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
+            <td width="2%"></td>
+            <td width="49%" style="font-style: italic;">Deliveries to the European internal market, tax-exempt according to § 4 No. 1 b) in conjunction with § 6a of the German Value Added Tax Act (UStG). Please transfer the invoiced amount within {{paymentTerm}} days.</td>
+        </tr>
+        <tr><td style="font-size: 3pt;" colspan="2"></td></tr>
+    </table>
+    <!-- {{/ifEqual}} -->
 
-<!-- {{#ifEqual vatDisclaimer '2'}} -->
-<table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
-    <tr>
-        <td width="50%">Es handelt sich umsatzsteuerlich um eine Lieferung und ist steuerfrei gemäß § 4 Nr. 1b) i.V.m. § 6 UstG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
-        <td width="50%" style="font-style: italic;">For value added tax purposes, this is a delivery. The delivery is tax-free in accordance with § 4 No. 1b) in conjunction with § 6 German UstG. Please transfer the invoiced amount within {{paymentTerm}} days.</td>
-    </tr>
-    <tr><td style="font-size: 3pt;" colspan="2"></td></tr>
-</table>
-<!-- {{/ifEqual}} -->
+    <!-- {{#ifEqual vatLegalDisclaimer_RAW 'Dlv-EX-EU'}} -->
+    <table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
+        <tr>
+            <td height="1.2cm" width="49%">Lieferungen in das Drittland, steuerfrei gemäß § 4 Nr. 1 a) i.V.m. § 6 UStG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
+            <td width="2%"></td>
+            <td width="49%" style="font-style: italic;">Deliveries to a third country, tax-exempt according to § 4 No. 1 a) in conjunction with § 6 of the German Value Added Tax Act (UStG). Please transfer the invoiced amount within {{paymentTerm}} days.</td>
+        </tr>
+        <tr><td style="font-size: 3pt;" colspan="2"></td></tr>
+    </table>
+    <!-- {{/ifEqual}} -->
 
-<!-- {{#ifEqual vatDisclaimer '3'}} -->
-<table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
-    <tr>
-        <td width="50%">Es handelt sich umsatzsteuerlich um sonstige Leistungen und ist steuerfrei gemäß § 3a (2) UstG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
-        <td width="50%" style="font-style: italic;">For value added tax purposes, this is any other service which is tax-free in accordance with § 3a (2) German UstG. Please transfer the invoiced amount within {{paymentTerm}} days.</td>
-    </tr>
-    <tr><td style="font-size: 3pt;" colspan="2"></td></tr>
-</table>
-<!-- {{/ifEqual}} -->
+    <!-- {{#ifEqual vatLegalDisclaimer_RAW 'Srv-IN-EU'}} -->
+    <table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
+        <tr>
+            <td height="1.2cm" width="42%">Sonst. Leistungen an Unternehmen im europ. Binnenmarkt, nicht steuerbar gemäß § 18 b UStG i.V.m. § 3a (2) UStG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
+            <td width="2%"></td>
+            <td width="56%" style="font-style: italic;">Other services to companies in the European internal market, not subject to tax according to § 18 b of the German Value Added Tax Act (UStG) in conjunction with § 3a (2) of the UStG. Please transfer the invoiced amount within {{paymentTerm}} days.</td>
+        </tr>
+        <tr><td style="font-size: 3pt;" colspan="2"></td></tr>
+    </table>
+    <!-- {{/ifEqual}} -->
 
-<table cellpadding="0" style="font-size: 7pt; color: #151515; text-align: left; line-height: 9pt;">
-    <tr>
-        <td width="1%" rowspan="3" style="border-left: 2px solid #151515;"></td>
-        <td width="7%">Bank:</td>
-        <td width="24%">Berliner Sparkasse</td>
-        <td width="1%" rowspan="3" style="border-left: 2px solid #151515;"></td>
-        <td width="17%">Headquarter office:</td>
-        <td width="18%">Berlin</td>
-        <td width="1%" rowspan="3" style="border-left: 2px solid #151515;"></td>
-        <td width="8%">Tax ID:</td>
-        <td width="14%">37/226/30721</td>
-        <td width="8%" rowspan="3" style="text-align: center; vertical-align: bottom; padding: 0;"><img src="https://nanotest.eu/fileadmin/images/logos/Nanotest-Logo-Devices-Ball.svg" width="25"></td>
-    </tr>
-    <tr>
-        <td>IBAN:</td>
-        <td>DE16 1005 0000 0063 6303 11</td>
-        <td>Chief executive officer:</td>
-        <td>Dr. Mohamad Abo Ras</td>
-        <td>VAT ID:</td>
-        <td>DE813955346</td>
-    </tr>
-    <tr>
-        <td>BIC:</td>
-        <td>BELADEBEXXX</td>
-        <td>Disctrict court of Berlin:</td>
-        <td>HRB 91964</td>
-        <td>Terms:</td>
-        <td><a href="https://nanotest.eu/terms" style="color: #151515; text-decoration: none;">nanotest.eu/terms</a></td>
-    </tr>
-</table>
+    <!-- {{#ifEqual vatLegalDisclaimer_RAW 'Srv-EX-EU'}} -->
+    <table cellpadding="2" style="font-size: 7.5pt; text-align: left;">
+        <tr>
+            <td height="1.2cm" width="49%">Sonst. Leistungen an Unternehmen im Drittland, nicht steuerbar gemäß § 3a (2) UStG. Wir bitten um Zahlung des Rechnungsbetrags binnen {{paymentTerm}} Tagen.</td>
+            <td width="2%"></td>
+            <td width="49%" style="font-style: italic;">Other services to companies in a third country, not subject to tax according to § 3a (2) of the German Value Added Tax Act (UStG). Please transfer the invoiced amount within {{paymentTerm}} days.</td>
+        </tr>
+        <tr><td style="font-size: 3pt;" colspan="2"></td></tr>
+    </table>
+    <!-- {{/ifEqual}} -->
+
+    <table cellpadding="0" style="font-size: 7pt; color: #151515; text-align: left; line-height: 9pt;">
+        <tr>
+            <td width="1%" rowspan="3" style="border-left: 2px solid #151515;"></td>
+            <td width="7%">Bank:</td>
+            <td width="24%">Berliner Sparkasse</td>
+            <td width="1%" rowspan="3" style="border-left: 2px solid #151515;"></td>
+            <td width="17%">Headquarter office:</td>
+            <td width="18%">Berlin</td>
+            <td width="1%" rowspan="3" style="border-left: 2px solid #151515;"></td>
+            <td width="8%">Tax ID:</td>
+            <td width="14%">37/226/30721</td>
+            <td width="8%" rowspan="3" style="text-align: center; vertical-align: bottom; padding: 0;"><img src="https://nanotest.eu/fileadmin/images/logos/Nanotest-Logo-Devices-Ball.svg" width="25"></td>
+        </tr>
+        <tr>
+            <td>IBAN:</td>
+            <td>DE16 1005 0000 0063 6303 11</td>
+            <td>Chief executive officer:</td>
+            <td>Dr. Mohamad Abo Ras</td>
+            <td>VAT ID:</td>
+            <td>DE813955346</td>
+        </tr>
+        <tr>
+            <td>BIC:</td>
+            <td>BELADEBEXXX</td>
+            <td>Disctrict court of Berlin:</td>
+            <td>HRB 91964</td>
+            <td>Terms:</td>
+            <td><a href="https://nanotest.eu/terms" style="color: #151515; text-decoration: none;">nanotest.eu/terms</a></td>
+        </tr>
+    </table>
