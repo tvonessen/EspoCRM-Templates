@@ -62,9 +62,9 @@
         
     </tr>
     <tr>
-        <td><b>Voraussichtlicher Liefertermin</b><br
-        ><i style="font-size: 9pt;">Expected delivery date</i></td>
-        <td width="19%">{{#if dueDate}}{{dateFormat dueDate_RAW format="DD-MMM-YYYY" language="en_US"}}{{/if}}</td>
+        <td><b>Voraussichtlicher Liefertermin<br/>und Lieferadresse</b><br
+        ><i style="font-size: 9pt;">Expected delivery date and address</i></td>
+        <td width="19%">{{#if dateDue}}{{dateFormat dateDue_RAW format="DD-MMM-YYYY" language="en_US"}}{{/if}}</td>
         <!-- {{#if billingAddressStreet}} -->
         <td width="46%">{{{shippingAddressStreet}}}{{#if shippingAddressCity}}<br>{{shippingAddressCity}}{{/if}}{{#if shippingAddressState}}, {{shippingAddressState}}{{/if}} {{#if shippingAddressPostalCode}}{{shippingAddressPostalCode}}{{/if}}{{#if shippingAddressState}}<br>{{shippingAddressCountry}}{{/if}}</td>
         <!-- {{/if}} -->
@@ -101,6 +101,15 @@
         </tr>
         <!-- {{/each}} -->
         <tr><td colspan="6" style="line-height: 2pt;"></td></tr>
+        <!-- {{#if shippingCost}} -->
+        <tr>
+            <td colspan="5" align="right">Packaging and shipping</td>
+            <td align="right">{{numberFormat shippingCost_RAW decimals='2' thousandsSeparator=' '}}</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="line-height: 2pt;"></td>
+        </tr>
+        <!-- {{/if}}-->
         <tr style="background-color: #f0f0f0; line-height: 20pt; vertical-align: middle;">
             <td colspan="5" align="right"><b>Net total</b></td>
             <td align="right"><b>{{numberFormat preDiscountedAmount_RAW decimals=2 thousandsSeparator=' '}}</b></td>
