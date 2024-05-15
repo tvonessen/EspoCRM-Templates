@@ -98,12 +98,10 @@
         <td width="23%"><b>Lead time:</b></td>
         <td>{{#if leadTime}}{{this.leadTime}}{{else}}t.b.a.{{/if}}</td>
     </tr>
-    <!-- {{#if shippingCost}} -->
     <tr>
         <td><b>Delivery:</b></td>
         <td>{{incoTerms}}</td>
     </tr>
-    <!-- {{/if}} -->
     <tr>
         <td><b>Term of payment:</b></td>
         <!--{{#if overridePaymentTerms}}-->
@@ -135,7 +133,6 @@
 <!-- {{#if remarks}} -->
 <p>{{{remarks}}}</p>
 <!-- {{/if}} -->
-<p>Please note that the current global pandemic and political situation may cause unpredictable delays from our suppliers which, in turn, may render us unable to deliver within the specified lead time. Any unexpected delay will be communicated as soon as we get aware of it, while the purchase order will remain effective.</p>
 <p>This quote is valid until {{dateFormat validUntil_RAW format='DD-MMM-YYYY' language="en_US"}}. Our General Terms and Conditions apply. Please refer to <a href="https://nanotest.eu/terms" style="color: black; text-decoration: none;">nanotest.eu/terms</a> for further information.</p>
 <p>We hope our offer meets your expectations and thank you for your consideration.</p>
 <p>For any questions or remarks feel free to contact us anytime.</p>
