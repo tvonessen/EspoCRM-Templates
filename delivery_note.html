@@ -1,34 +1,27 @@
 <style>*{font-size: 10pt; line-height: normal;}</style>
+
+
+
 <table cellpadding="0" style="color: #303030; text-align: left; vertical-align: top;">
+
+
     <tr>
         <td colspan="4" width="100%"><b style="font-size: 7.5pt; line-height: 15pt; color: #303030;">Berliner Nanotest und Design GmbH | Volmerstr. 9 B | D-12489 Berlin</b></td>
     </tr>
     <tr>
-        <td style="vertical-align: top; color:#000000;" rowspan="6" width="58%"
-        ><b>{{#if shippingAddressCompany}}{{shippingAddressCompany}}{{else}}{{accountName}}{{/if}}</b><br><span
+        <td style="vertical-align: top;" rowspan="4" width="58%"
+            ><b>{{#if shippingAddressCompany}}{{shippingAddressCompany}}{{else}}{{accountName}}{{/if}}</b><br><span
             >{{#if shippingAddressStreet}}{{{shippingAddressStreet}}}{{else}}{{{account.shippingAddressStreet}}}{{/if}}</span><br><span
             >{{#if shippingAddressCity}}{{shippingAddressCity}}{{#if shippingAddressState}}, {{/if}}{{shippingAddressState}} {{shippingAddressPostalCode}}{{else}}{{account.shippingAddressCity}}{{#if account.shippingAddressState}}, {{/if}}{{account.shippingAddressState}} {{account.shippingAddressPostalCode}}{{/if}}</span><br><span
             >{{#if shippingAddressCountry}}{{shippingAddressCountry}}{{else}}{{account.shippingAddressCountry}}{{/if}}<br></span>
         </td>
-        <td rowspan="3" width="2%" style="border-left: 2px solid #00a984;"></td>
-        <td width="16%"><b style="font-size: 9pt; color: #204E4A">Contact person:</b></td>
-        <td style="font-size: 9pt;">{{assignedUser.name}}</td>
-    </tr>
-    <tr>
-        <td width="16%"><b style="font-size: 9pt; color: #204E4A">Phone:</b></td>
-        <td style="font-size: 9pt;">{{assignedUser.phoneNumber}}</td>
-    </tr>
-    <tr>
-        <td width="16%"><b style="font-size: 9pt; color: #204E4A">E-mail:</b></td>
-        <td style="font-size: 9pt;">{{assignedUser.emailAddress}}</td>
-    </tr>
-    <tr><td colspan="3"></td></tr>
-    <tr>
         <td width="2%" style="border-left: 2px solid #00a984;"></td>
         <td width="16%"><b style="font-size: 10.5pt; color: #204E4A">Date:</b></td>
-        <td style="font-size: 10.5pt;">{{dateFormat today_RAW format='DD-MMM-YYYY' language="en_US"}}</td>
+        <td width="24%" style="font-size: 10.5pt;">{{dateFormat today_RAW format='DD-MMM-YYYY' language="en_US"}}</td>
     </tr>
-    <tr><td colspan="3"></td></tr>
+    <tr><td colspan="4"></td></tr>
+    <tr><td colspan="4"></td></tr>
+    <tr><td colspan="4"></td></tr>
 </table>
 
 <table style="padding-left: 7pt;">

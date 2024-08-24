@@ -2,35 +2,24 @@
 *{font-size: 10pt; line-height: normal;}
 </style>
 <table cellpadding="0" style="color: #303030; text-align: left; vertical-align: top;">
+
     <tr>
         <td colspan="4" width="100%"><b style="font-size: 7.5pt; line-height: 15pt; color: #303030;">Berliner Nanotest und Design GmbH | Volmerstr. 9 B | D-12489 Berlin</b></td>
     </tr>
     <tr>
-        <td style="vertical-align: top; color: #000000;" rowspan="6" width="58%"
+        <td style="vertical-align: top;" rowspan="4" width="58%"
             ><b>{{#if billingAddressCompany}}{{billingAddressCompany}}{{else}}{{accountName}}{{/if}}</b><br><span
             >{{#if billingAddressStreet}}{{{billingAddressStreet}}}{{else}}{{{account.billingAddressStreet}}}{{/if}}</span><br><span
             >{{#if billingAddressCity}}{{billingAddressCity}}{{#if billingAddressState}},{{/if}}{{billingAddressState}} {{billingAddressPostalCode}}{{else}}{{account.billingAddressCity}}{{#if account.billingAddressState}},{{/if}}{{account.billingAddressState}} {{account.billingAddressPostalCode}}{{/if}}</span><br><span
             >{{#if billingAddressCountry}}{{billingAddressCountry}}{{else}}{{account.billingAddressCountry}}{{/if}}<br></span>
         </td>
-        <td rowspan="3" width="2%" style="border-left: 2px solid #00a984;"></td>
-        <td width="19%"><b style="font-size: 9pt; color: #204e4a">Ansprechpartner:</b></td>
-        <td width="21%" style="font-size: 9pt;">{{assignedUser.name}}</td>
-    </tr>
-    <tr>
-        <td width="19%"><b style="font-size: 9pt; color: #204e4a">Telefon:</b></td>
-        <td style="font-size: 9pt;">{{assignedUser.phoneNumber}}</td>
-    </tr>
-    <tr>
-        <td width="19%"><b style="font-size: 9pt; color: #204e4a">E-Mail:</b></td>
-        <td style="font-size: 9pt;">{{assignedUser.emailAddress}}</td>
-    </tr>
-    <tr><td colspan="3"></td></tr>
-    <tr>
         <td width="2%" style="border-left: 2px solid #00a984;"></td>
-        <td width="19%"><b style="font-size: 10.5pt; color: #204e4a">Datum:</b></td>
-        <td style="font-size: 10.5pt;">{{dateFormat dateInvoiced_RAW format='DD. MMM. YYYY' language="de_DE"}}</td>
+        <td width="19%"><b style="font-size: 10.5pt; color: #204E4A">Datum:</b></td>
+        <td width="21%" style="font-size: 10.5pt;">{{dateFormat dateInvoiced_RAW format='DD. MMM. YYYY' language="de_DE"}}</td>
     </tr>
-    <tr><td colspan="3"></td></tr>
+    <tr><td colspan="4"></td></tr>
+    <tr><td colspan="4"></td></tr>
+    <tr><td colspan="4"></td></tr>
 </table>
 
 <table style="padding-left: 7pt;">

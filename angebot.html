@@ -5,32 +5,20 @@
             <td colspan="4" width="100%"><b style="font-size: 7.5pt; line-height: 15pt; color: #303030;">Berliner Nanotest und Design GmbH | Volmerstr. 9 B | D-12489 Berlin</b></td>
         </tr>
         <tr>
-            <td style="vertical-align: top;" rowspan="6" width="58%"
+            <td style="vertical-align: top;" rowspan="4" width="58%"
                 ><b>{{accountName}}</b><br><span
                 {{#if shippingContactName}}>{{shippingContactName}}</span><br><span {{/if}}
                 >{{#if shippingAddressStreet}}{{{shippingAddressStreet}}}{{else}}{{{account.shippingAddressStreet}}}{{/if}}</span><br><span
                 >{{#if shippingAddressCity}}{{shippingAddressPostalCode}} {{shippingAddressCity}}{{#if shippingAddressState}}, {{/if}}{{shippingAddressState}}{{else}}{{#if account.shippingAddressCity}}{{account.shippingAddressPostalCode}} {{account.shippingAddressCity}}{{#if account.shippingAddressState}}, {{/if}}{{account.shippingAddressState}}{{/if}}{{/if}}</span><br><span
                 >{{#if shippingAddressCountry}}{{shippingAddressCountry}}{{else}}{{account.shippingAddressCountry}}{{/if}}<br></span>
             </td>
-            <td rowspan="3" width="2%" style="border-left: 2px solid #00a984;"></td>
-            <td width="19%"><b style="font-size: 9pt; color: #204E4A">Ansprechpartner:</b></td>
-            <td width="21%" style="font-size: 9pt;">{{assignedUser.name}}</td>
-        </tr>
-        <tr>
-            <td width="19%"><b style="font-size: 9pt; color: #204E4A">Telefon:</b></td>
-            <td style="font-size: 9pt;">{{assignedUser.phoneNumber}}</td>
-        </tr>
-        <tr>
-            <td width="19%"><b style="font-size: 9pt; color: #204E4A">E-Mail:</b></td>
-            <td style="font-size: 9pt;">{{assignedUser.emailAddress}}</td>
-        </tr>
-        <tr><td colspan="3"></td></tr>
-        <tr>
             <td width="2%" style="border-left: 2px solid #00a984;"></td>
             <td width="19%"><b style="font-size: 10.5pt; color: #204E4A">Datum:</b></td>
             <td width="21%" style="font-size: 10.5pt;">{{dateFormat dateQuoted_RAW format='DD. MMM. YYYY' language="de_DE"}}</td>
         </tr>
-        <tr><td colspan="3"></td></tr>
+        <tr><td colspan="4"></td></tr>
+        <tr><td colspan="4"></td></tr>
+        <tr><td colspan="4"></td></tr>
     </tbody>
 </table>
 
