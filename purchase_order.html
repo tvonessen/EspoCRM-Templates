@@ -1,0 +1,111 @@
+<style>*{font-size: 10pt; line-height: normal;}</style>
+<table cellpadding="0" style="color: #303030; text-align: left; vertical-align: top;">
+    <tr>
+        <td width="58%"></td>
+        <td rowspan="3" width="2%" style="border-left: 2px solid #00a984;"></td>
+        <td width="16%"><b style="font-size: 9pt; color: #204E4A">Purchaser:</b></td>
+        <td width="24%" style="font-size: 9pt;">{{assignedUser.name}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td width="16%"><b style="font-size: 9pt; color: #204E4A">Phone:</b></td>
+        <td width="24%" style="font-size: 9pt;">{{assignedUser.phoneNumber}}</td>
+    </tr>
+    <tr>
+        <td><b style="font-size: 7.5pt; line-height: 15pt; color: #303030;">Berliner Nanotest und Design GmbH | Volmerstr. 9 B | D-12489 Berlin</b></td>
+        <td width="16%"><b style="font-size: 9pt; color: #204E4A">E-Mail:</b></td>
+        <td width="24%" style="font-size: 9pt;">{{assignedUser.emailAddress}}</td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top;" rowspan="4" width="58%"
+            ><b>{{#if supplier.name}}{{supplier.name}}{{else}}{{account.name}}{{/if}}</b><br><span
+            >{{#if supplier.billingAddressStreet}}{{{supplier.billingAddressStreet}}}{{else}}{{{account.billingAddressStreet}}}{{/if}}</span><br><span
+            >{{#if supplier.billingAddressCity}}{{supplier.billingAddressCity}}{{#if supplier.billingAddressState}}, {{/if}}{{supplier.billingAddressState}} {{supplier.billingAddressPostalCode}}{{else}}{{account.billingAddressCity}}{{#if account.billingAddressState}}, {{/if}}{{account.billingAddressState}} {{account.billingAddressPostalCode}}{{/if}}</span><br><span
+            >{{#if supplier.billingAddressCountry}}{{supplier.billingAddressCountry}}{{else}}{{account.billingAddressCountry}}{{/if}}<br></span>
+        </td>
+        <td width="2%" style="border-left: 2px solid #00a984;"></td>
+        <td width="16%"><b style="font-size: 10.5pt; color: #204E4A">Date:</b></td>
+        <td width="24%" style="font-size: 10.5pt;">{{dateFormat dateOrdered_RAW format='DD-MMM-YYYY' language="en_US"}}</td>
+    </tr>
+    <tr><td colspan="4"></td></tr>
+    <tr><td colspan="4"></td></tr>
+    <tr><td colspan="4"></td></tr>
+</table>
+
+<table style="padding-left: 7pt;">
+    <tr><td colspan="2"></td></tr>
+    <tr>
+        <td width="100%" style="border-left: 2px solid #00a984;"><b style="font-size: 16pt;">Purchase Order</b></td>
+    </tr>
+    <tr><td colspan="2"></td></tr>
+</table>
+
+<table cellpadding="2">
+    <tr>
+        <td width="38%"><b>Purchase order number</b></td>
+        <td width="19%">{{number}}</td>
+    </tr>
+    <tr>
+        <td width="38%"><b>Quote number</b></td>
+        <td width="19%">{{cQuoteNumber}}</td>
+    </tr>
+    <tr>
+        <td width="38%"><b>Payment terms</b></td>
+        <td width="19%">{{#if cPaymentTerm}}{{cPaymentTerm}}{{else}}NET {{account.paymentTerm}}{{/if}}</td>
+    </tr>
+    <tr>
+        <td width="50%"><b>Ship to</b><br
+            >{{cShippingCompany}}<br
+            >{{#if shippingAddressSteet}}{{shippingAddressStreet}}{{else}}Volmerstr. 9 B{{/if}}<br
+            >{{#if shippingAddressPostalCode}}{{shippingAddressPostalCode}}{{else}}D-12489{{/if}} {{#if shippingAddressCity}}{{shippingAddressCity}}{{else}}Berlin{{/if}}<br
+            >{{#if shippingAddressCountry}}{{shippingAddressCountry}}{{else}}Germany{{/if}}
+        </td>
+        <td width="50%"><b>Bill to</b><br
+            >{{cBillingCompany}}<br
+            >{{#if billingAddressStreet}}{{billingAddressStreet}}{{else}}Volmerstr. 9 B{{/if}}<br
+            >{{#if billingAddressPostalCode}}{{billingAddressPostalCode}}{{else}}D-12489{{/if}} {{#if billingAddressCity}}{{billingAddressCity}}{{else}}Berlin{{/if}}<br
+            >{{#if billingAddressCountry}}{{billingAddressCountry}}{{else}}Germany{{/if}}<br
+            ><a href="mailto:invoice@nanotest.eu">invoice@nanotest.eu</a>
+        </td>
+    </tr>
+    <tr><td colspan="3"></td></tr>
+</table>
+
+<table border="0" cellpadding="2" style="line-height: 12.5pt;">
+
+        <tr style="background-color: #f0f0f0;">
+            <th width="5%" style="text-align: center; padding: 2px;"><b>#</b></th>
+            <th width="59%" style="padding: 2px;"><b>Item</b></th>
+            <th width="10%" style="text-align: center; padding: 2px;"><b>Qty</b></th>
+            <th width="13%" style="text-align: right; padding: 2px;"><b>Unit Price</b></th>
+            <th width="13%" style="text-align: right; padding: 2px;"><b>Price</b></th>
+        </tr>
+
+        <!-- {{#each itemList}} -->
+        <tr>
+            <td style="text-align: center;">{{order}}</td>
+            <td>{{name}}{{#if description}}<br
+                ><span style="font-size: 8.5pt; color: #303030;">{{{description}}}</span>{{/if}}</td>
+            <td align="center">{{quantity}}</td>
+            <td align="right">{{numberFormat unitPrice_RAW decimals=2 thousandsSeparator=' '}}</td>
+            <td align="right">{{numberFormat amount_RAW decimals=2 thousandsSeparator=' '}}</td>
+        </tr>
+        <!-- {{/each}} -->
+        <tr>
+            <td colspan="5" style="line-height: 2pt;"></td>
+        </tr>
+        <tr style="background-color: #f0f0f0; line-height: 20pt; vertical-align: middle;">
+            <td colspan="4" align="right"><b>Total</b></td>
+            <td align="right"><b>{{numberFormat grandTotalAmount_RAW decimals=2 thousandsSeparator=' '}}</b></td>
+        </tr>
+        <tr><td colspan="5" style="text-align: right; line-height: 14pt;">Currency:  {{amountCurrency}}</td></tr>
+        <!-- {{#if description}} -->
+        <tr><td colspan="5" style="line-height: 2pt;"></td></tr>
+        <tr>
+            <td width="12%"><strong>Hinweise</strong></td>
+            <td colspan="4" style="text-align: left;"><em>Additional remarks</em></td>
+        </tr>
+        <tr><td colspan="5">{{{description}}}</td></tr>
+        <!-- {{/if}} -->
+
+</table>
